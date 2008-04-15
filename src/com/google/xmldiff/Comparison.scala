@@ -52,6 +52,8 @@ class Comparison extends ((Elem, Elem) => XmlDiff) {
     var fs = act
     
     while (es != Nil) {
+      if (fs.isEmpty)
+        return Diff(path, "Expected <" +es.head.label + ">.")
       es.head match {
         case e1: Elem =>
           if (ignored(e1.label)) {
