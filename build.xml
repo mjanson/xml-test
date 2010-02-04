@@ -32,16 +32,16 @@
       <condition><not><and>
         <available classname="scala.Predef"
                    classpath="${scala-library.jar}"/>
-        <available classname="scala.List"
+        <available classname="scala.collection.immutable.List"
                    classpath="${scala-library.jar}"/>
       </and></not></condition>
     </fail>
     <fail message="Scala library '${scala-compiler.jar}' is not available">
       <condition><not><and>
         <available classname="scala.tools.ant.Scalac"
-                   classpath="${scala-compiler.jar}"/>
+                   classpath="${scala-compiler.jar}:${scala-library.jar}"/>
         <available classname="scala.tools.nsc.Main"
-                   classpath="${scala-compiler.jar}"/>
+                   classpath="${scala-compiler.jar}:${scala-library.jar}"/>
       </and></not></condition>
     </fail>
     <path id="scala.classpath">
